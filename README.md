@@ -106,3 +106,4 @@ git clone https://github.com/KetanIP/analytics.git
 
 # Make some changes and create a pull request.
 ```
+**Note**: Sorry guys I deleted this repo and then created it again as I somehow managed to leak my public IP so I need to do that but now I just IP of a VPN node in config so event if that happens again I won't need to delete the whole repo. 
