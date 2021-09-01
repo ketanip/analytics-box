@@ -1,0 +1,33 @@
+{
+  "name": "analytics-tracing-script",
+  "version": "1.0.0",
+  "description": "Tracking script for a privacy frinedly analytics tool. [Name not thought yet].",
+  "main": "./src/main.js",
+  "dependencies": {
+    "timeme.js": "^2.1.0"
+  },
+  "devDependencies": {
+    "parcel": "^2.0.0-rc.0",
+    "browserify": "^17.0.0"
+  },
+  "scripts": {
+    "dev": "parcel ./index.html",
+    "build": "browserify ./src/main.js -o ./dist/tracking-script.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KetanIP/analytics.git"
+  },
+  "keywords": [
+    "analytics",
+    "privacy",
+    "friendly",
+    "simple"
+  ],
+  "author": "Ketan Iralepatil",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KetanIP/analytics/issues"
+  },
+  "homepage": "https://github.com/KetanIP/analytics#readme"
+}
