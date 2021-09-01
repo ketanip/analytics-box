@@ -24,6 +24,7 @@ There are many privacy friendly analytics tool but here are some points that mak
 5. Super simple to setup. ( 1 go binary + 1 super small script on frontend ).
 6. Super low resource consumption.
 
+A star would be appericiated.
 
 ### Important Changes
 I've decided not to add any kind of dashboard to it, I think people using this should use something like metabase they can use it locally. Here are some of the reasons for my decision, if you have any other good ideas please start a discussion in discussions tab.
