@@ -11,9 +11,9 @@ There are many privacy friendly analytics tool but here are some points that mak
 3. It currenlty supports PostgresSQL and in future I plan to add support for Clickhouse because of its amazing perfomance, and I will continue to keep postgres supported for as long as possible because of its low resource consumption it would be a great tool for small websited like blogs, like one that[I have](https://ketaniralepatil.com) though it hasn't been updated for a while now.
 4. I don't plan to convert it into a SaaS application ( atleast in near future ) as I don't want to make another saas privacy focused anlytics app as there are already many good in market. I'm making this in a way that you can get most insights from your data so it doesn't have a dashboard ( use someting like metabase for it here are some screenshots of dashboard that I build within 3-4 minutes while writing this readme and I'm no profession and it on par with what saas provides apps provides to you) with complete control over your data and it can run on simple commodity hardware for a long period of time without any manual intervisions.
 
-<img src="./assets/1.png" width="500"></img>
-<img src="./assets/2.png" width="500"></img>
-<img src="./assets/3.png" width="500"></img>
+<img src="./assets/dashboard/1.png" width="500"></img>
+<img src="./assets/dashboard/2.png" width="500"></img>
+<img src="./assets/dashboard/3.png" width="500"></img>
 
 
 ### Features
