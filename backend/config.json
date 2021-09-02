@@ -1,0 +1,7 @@
+{
+    "test_mode": true,
+    "test_ip": "",
+    "database_url": "postgres://postgres:postgres@localhost:5432/analyticsdb?sslmode=disable",
+    "queries_folder": "./queries",
+    "database_driver": "postgres"
+}

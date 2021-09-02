@@ -22,7 +22,7 @@ type Configuration struct {
 	TestIP         string `json:"test_ip"`
 	DatabaseURL    string `json:"database_url"`
 	DatabaseDriver string `json:"database_driver"`
-	QueriesFile    string `json:"queries_file"`
+	QueriesFolder  string `json:"queries_folder"`
 }
 
 // LoadConfig loads config from a config.json file.
@@ -70,7 +70,7 @@ func CreateConnection() {
 func LoadSQLQueries() {
 
 	// Loading queried from file.
-	dot, err := dotsql.LoadFromFile(Config.QueriesFile)
+	dot, err := dotsql.LoadFromFile(Config.QueriesFolder + Config.DatabaseDriver + ".sql")
 	if err != nil {
 		panic(err)
 	}
