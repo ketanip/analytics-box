@@ -2,6 +2,8 @@
 
 Hello guys, this is privacy friendly analytics tool, Analytics Box for web written in go. It ensures user privacy but at the same time also provides key metrics that will ensure your business does good while keeping user privacy in mind.
 
+**Announcement**: We have added a dashboard for analytics-box it is peresent at [Analytics Box Dashboard](https://github.com/KetanIP/analytics-box-dashboard).
+
 ### What is Analytics Box ?
 
 Analytics box is analytics tool like google analytics but instead of ripping user's privacy off them like google it respects their privacy and doesn't collect any unnecessary information.
