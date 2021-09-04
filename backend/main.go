@@ -5,6 +5,7 @@ import (
 	"github.com/gofiber/fiber/v2/middleware/logger"
 	"github.com/ketanip/analytics/api"
 	"github.com/ketanip/analytics/db"
+	"github.com/ketanip/analytics/event"
 )
 
 func main() {
@@ -29,6 +30,9 @@ func main() {
 
 	// Creating tables if they don't exists.
 	db.CreateTables()
+
+	// Transaction Goroutine to save events.
+	go event.RunTransaction()
 
 	// Initsilize Fiber
 	app := fiber.New()

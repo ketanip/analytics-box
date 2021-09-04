@@ -18,11 +18,13 @@ var (
 
 // Configuration struct.
 type Configuration struct {
-	TestMode       bool   `json:"test_mode"`
-	TestIP         string `json:"test_ip"`
-	DatabaseURL    string `json:"database_url"`
-	DatabaseDriver string `json:"database_driver"`
-	QueriesFolder  string `json:"queries_folder"`
+	TestMode                bool   `json:"test_mode"`
+	TestIP                  string `json:"test_ip"`
+	DatabaseURL             string `json:"database_url"`
+	DatabaseDriver          string `json:"database_driver"`
+	QueriesFolder           string `json:"queries_folder"`
+	TransactionSleepTime    int    `json:"transaction_sleep_time"`
+	MinimumTransactionCount int    `json:"minimum_transaction_count"`
 }
 
 // LoadConfig loads config from a config.json file.

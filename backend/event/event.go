@@ -2,8 +2,6 @@ package event
 
 import (
 	"time"
-
-	"github.com/ketanip/analytics/db"
 )
 
 // Event type.
@@ -42,19 +40,7 @@ type Event struct {
 	DeviceHeight int `json:"device_height" db:"device_height"`
 }
 
-// SaveEvent is used to save event in the database.
-func (event *Event) SaveEvent() {
-
-	// Getting Raw query.
-	query, err := db.Queries.Raw("create-event")
-	if err != nil {
-		panic("Failed to load create-event query.")
-	}
-
-	// Saving event to database.
-	_, rerr := db.DB.NamedQuery(query, &event)
-	if rerr != nil {
-		panic(rerr)
-	}
-
+// AddEvent is used to save event in the database.
+func (event *Event) AddEvent() {
+	AllEvents = append(AllEvents, *event)
 }

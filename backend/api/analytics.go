@@ -81,10 +81,10 @@ func AnalyticsDataHandler(c *fiber.Ctx) error {
 		DeviceWidth:  data.DeviceWidth,
 	}
 
-	// Creating event in database.
-	event.SaveEvent()
+	// Adding event to transaction que.
+	event.AddEvent()
 
-	// Sending Nothing
+	// Return no error.
 	return nil
 
 }
