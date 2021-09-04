@@ -17,5 +17,6 @@ Analytics box is analytics tool like google analytics but instead of ripping use
 6. Super low resource consumption.
 7. Dashboard is decoupled from the tool so you can use any tool ( like Metabase for visualization of data ).
 8. Supports multiple SQL database.
+9. Transaction support by default so it won't hurt your database and it can work well with databases like clickhouse.
 
 ### Read the docs and more about the project [here](https://ketanip.gitbook.io/analytics-box).
