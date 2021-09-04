@@ -1,9 +1,0 @@
-{
-    "test_mode": true,
-    "test_ip": "1.1.1.1",
-    "database_url": "postgres://username:password@host:port/database?sslmode=disable",
-    "queries_folder": "./queries/",
-    "database_driver": "postgres",
-    "transaction_sleep_time": 1000,
-    "minimum_transaction_count": 1
-}

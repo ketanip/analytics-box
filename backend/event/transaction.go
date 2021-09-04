@@ -77,7 +77,7 @@ func RunTransaction() {
 
 	for {
 
-		if len(AllEvents) > db.Config.MinimumTransactionCount {
+		if len(AllEvents) >= db.Config.MinimumTransactionCount {
 
 			// Running transcation.
 			SaveEventsTransaction()

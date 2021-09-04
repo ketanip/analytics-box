@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"io/ioutil"
 
+	_ "github.com/go-sql-driver/mysql" // MySQL driver
 	"github.com/jmoiron/sqlx"
 	_ "github.com/lib/pq" // Driver for postgres SQL.
 	"github.com/qustavo/dotsql"
@@ -89,6 +90,7 @@ func CreateTables() {
 	// creates table in database if it doesn't exits.
 	_, rerr := Queries.Exec(DB.DB, "create-events-table")
 	if rerr != nil {
+		panic(rerr)
 		panic("Failed to load create events table.")
 	}
 
