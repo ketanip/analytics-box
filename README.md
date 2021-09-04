@@ -19,4 +19,11 @@ Analytics box is analytics tool like google analytics but instead of ripping use
 8. Supports multiple SQL database.
 9. Transaction support by default so it won't hurt your database and it can work well with databases like clickhouse.
 
+### Supported Databases
+1. Postgres SQL
+2. MySQL
+3. TimeScale DB [ Work in Progress ]
+4. Clickhouse [ Work in Progress ]
+5. Redshift [ Work in Progress ]
+
 ### Read the docs and more about the project [here](https://ketanip.gitbook.io/analytics-box).
