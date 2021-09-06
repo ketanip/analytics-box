@@ -31,23 +31,40 @@ func AnalyticsDataHandler(c *fiber.Ctx) error {
 		return nil
 	}
 
+	// IP Parsing to obtain user's country
+	var ip string
+	if db.Config.TestMode == true {
+		ip = db.Config.TestIP
+	} else {
+		ip = c.IP()
+	}
+
+	// Getting user agent
+	userAgent := string(c.Request().Header.Peek("User-Agent"))
+
+	// Processing incoming data.
+	go ProcessIncomingData(userAgent, ip, *data)
+
+	// Return no error.
+	return nil
+
+}
+
+// ProcessIncomingData processes incoming data in a go routine
+// so it becomes a non blocking operation and it reduced response time from 3-4 ms
+// down to 0-1 ms.
+func ProcessIncomingData(userAgent string, ip string, data PayloadData) {
+
 	// Parsing user agent.
-	UserAgentData := user_agent.New(string(c.Request().Header.Peek("User-Agent")))
+	UserAgentData := user_agent.New(userAgent)
 	browser, browserVersionRaw := UserAgentData.Browser()
 	browserVersion := strings.Split(browserVersionRaw, ".")[0]
 
-	// Var to load user country.
-	var userCountry string
-
-	// IP Parsing to obtain user's country
-	if db.Config.TestMode == true {
-		userCountry = db.IPParser(db.Config.TestIP)
-	} else {
-		userCountry = db.IPParser(c.IP())
-	}
+	// Getting user country.
+	userCountry := db.IPParser(ip)
 
 	// Generating unique user ID.
-	userID := util.CreateUniqueVisitorID(data.Domain, c.IP(), browser, UserAgentData.OS())
+	userID := util.CreateUniqueVisitorID(data.Domain, ip, browser, UserAgentData.OS())
 
 	// Event object
 	event := event.Event{
@@ -83,8 +100,5 @@ func AnalyticsDataHandler(c *fiber.Ctx) error {
 
 	// Adding event to transaction que.
 	event.AddEvent()
-
-	// Return no error.
-	return nil
 
 }

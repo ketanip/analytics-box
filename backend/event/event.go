@@ -42,5 +42,5 @@ type Event struct {
 
 // AddEvent is used to save event in the database.
 func (event *Event) AddEvent() {
-	AllEvents = append(AllEvents, *event)
+	AllEvents = append(AllEvents, event)
 }

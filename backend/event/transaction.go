@@ -10,13 +10,13 @@ import (
 var (
 
 	// AllEvents stores events in memory for transaction.
-	AllEvents []Event
+	AllEvents []*Event
 )
 
 // SaveEventsTransaction begins transaction and saves events to database.
 func SaveEventsTransaction() {
 
-	var eventsData []Event
+	var eventsData []*Event
 
 	// Getting raw query.
 	query, err := db.Queries.Raw("create-event")
@@ -31,8 +31,8 @@ func SaveEventsTransaction() {
 	}
 
 	// Copying all events to local varible and making global varible nil for next batch.
-	eventsData = append(eventsData, AllEvents...)
-	AllEvents = nil
+	eventsData = AllEvents[:db.Config.MinimumTransactionCount]
+	AllEvents = AllEvents[db.Config.MinimumTransactionCount:]
 
 	// Executing queries.
 	for _, event := range eventsData {
