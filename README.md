@@ -22,7 +22,6 @@ Analytics box is analytics tool like google analytics but instead of ripping use
 ### Supported Databases
 1. Postgres SQL
 2. MySQL
-3. TimeScale DB [ Work in Progress ]
-4. Clickhouse [ Work in Progress ]
+3. Clickhouse
 
 ### Read the docs and more about the project [here](https://ketanip.gitbook.io/analytics-box).
