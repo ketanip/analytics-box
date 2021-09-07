@@ -4,9 +4,10 @@ import (
 	"encoding/json"
 	"io/ioutil"
 
-	_ "github.com/go-sql-driver/mysql" // MySQL driver
+	_ "github.com/go-sql-driver/mysql" // MySQL driver.
 	"github.com/jmoiron/sqlx"
-	_ "github.com/lib/pq" // Driver for postgres SQL.
+	_ "github.com/lib/pq"               // Postgres driver.
+	_ "github.com/mailru/go-clickhouse" // Clickhouse driver.
 	"github.com/qustavo/dotsql"
 )
 

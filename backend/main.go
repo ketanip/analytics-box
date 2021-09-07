@@ -44,7 +44,7 @@ func main() {
 	FiberRouteHandler(app)
 
 	// Running fiber app on http://localhost:3000 and handling any possible errors.
-	if err := app.Listen(":3000"); err != nil {
+	if err := app.Listen(":8000"); err != nil {
 		panic(err)
 	}
 
