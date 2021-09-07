@@ -24,4 +24,8 @@ Analytics box is analytics tool like google analytics but instead of ripping use
 2. MySQL
 3. Clickhouse
 
+#### When to use which database ?
+
+You should start by using Postgres SQL ( Prefered ) or MySQL and it will last you until ( according to my opinion ) until 100,000 daily events with super ease. You should consider switching to Clickhouse if postgres or mysql is not able to handle workload from your website.
+
 ### Read the docs and more about the project [here](https://ketanip.gitbook.io/analytics-box).
