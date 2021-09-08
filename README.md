@@ -12,10 +12,9 @@ Analytics box is analytics tool like google analytics but instead of ripping use
 1. No Cookies.
 2. Forgets user in 24 hours so even if wish to know user's private info you can't.
 3. Can track unique page views effectively without hurting user's privacy.
-4. Custom events available.
+4. Custom events are supported.
 5. Super simple to setup. ( 1 go binary + 1 super small script on frontend ).
 6. Super low resource consumption.
-7. Dashboard is decoupled from the tool so you can use any tool ( like Metabase for visualization of data ).
-8. Uses Clickhouse so scale is not a problem for it.
+7. Uses Clickhouse so scale is not a problem for it.
 
 ### Read the docs and more about the project [here](https://ketanip.gitbook.io/analytics-box).
