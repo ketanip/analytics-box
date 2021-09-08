@@ -2,7 +2,7 @@
 
 Hello guys, this is privacy friendly analytics tool, Analytics Box for web written in go. It ensures user privacy but at the same time also provides key metrics that will ensure your business does good while keeping user privacy in mind.
 
-**Announcement**: We have added a dashboard for analytics-box it is peresent at [Analytics Box Dashboard](https://github.com/KetanIP/analytics-box-dashboard).
+**Announcement**: We soon will be adding dashboard to the this project itself as it would reduce a lot of managment tensions in production.
 
 ### What is Analytics Box ?
 
@@ -16,16 +16,7 @@ Analytics box is analytics tool like google analytics but instead of ripping use
 5. Super simple to setup. ( 1 go binary + 1 super small script on frontend ).
 6. Super low resource consumption.
 7. Dashboard is decoupled from the tool so you can use any tool ( like Metabase for visualization of data ).
-8. Supports multiple SQL database.
+8. Uses Clickhouse so scale is not a problem for it.
 9. Transaction support by default so it won't hurt your database and it can work well with databases like clickhouse.
-
-### Supported Databases
-1. Postgres SQL
-2. MySQL
-3. Clickhouse
-
-#### When to use which database ?
-
-You should start by using Postgres SQL ( Prefered ) or MySQL and it will last you until ( according to my opinion ) until 100,000 daily events with super ease. You should consider switching to Clickhouse if postgres or mysql is not able to handle workload from your website.
 
 ### Read the docs and more about the project [here](https://ketanip.gitbook.io/analytics-box).
