@@ -4,6 +4,7 @@
   "description": "Tracking script for a privacy frinedly analytics tool. [Name not thought yet].",
   "main": "./src/main.js",
   "dependencies": {
+    "timeme": "^1.0.0",
     "timeme.js": "^2.1.0"
   },
   "devDependencies": {
