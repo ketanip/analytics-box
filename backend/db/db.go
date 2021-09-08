@@ -4,9 +4,7 @@ import (
 	"encoding/json"
 	"io/ioutil"
 
-	_ "github.com/go-sql-driver/mysql" // MySQL driver.
 	"github.com/jmoiron/sqlx"
-	_ "github.com/lib/pq"               // Postgres driver.
 	_ "github.com/mailru/go-clickhouse" // Clickhouse driver.
 	"github.com/qustavo/dotsql"
 )
@@ -23,8 +21,8 @@ type Configuration struct {
 	TestMode                bool   `json:"test_mode"`
 	TestIP                  string `json:"test_ip"`
 	DatabaseURL             string `json:"database_url"`
-	DatabaseDriver          string `json:"database_driver"`
-	QueriesFolder           string `json:"queries_folder"`
+	QueriesFile             string `json:"queries_file"`
+	SecretHashKey           string `json:"secret_hash_key"`
 	TransactionSleepTime    int    `json:"transaction_sleep_time"`
 	MinimumTransactionCount int    `json:"minimum_transaction_count"`
 }
@@ -55,7 +53,7 @@ func LoadConfig() {
 func CreateConnection() {
 
 	// exactly the same as the built-in
-	db, err := sqlx.Connect(Config.DatabaseDriver, Config.DatabaseURL)
+	db, err := sqlx.Connect("clickhouse", Config.DatabaseURL)
 	if err != nil {
 		panic(err)
 	}
@@ -74,7 +72,7 @@ func CreateConnection() {
 func LoadSQLQueries() {
 
 	// Loading queried from file.
-	dot, err := dotsql.LoadFromFile(Config.QueriesFolder + Config.DatabaseDriver + ".sql")
+	dot, err := dotsql.LoadFromFile(Config.QueriesFile)
 	if err != nil {
 		panic(err)
 	}
@@ -91,7 +89,6 @@ func CreateTables() {
 	// creates table in database if it doesn't exits.
 	_, rerr := Queries.Exec(DB.DB, "create-events-table")
 	if rerr != nil {
-		panic(rerr)
 		panic("Failed to load create events table.")
 	}
 

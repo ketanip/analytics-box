@@ -1,9 +1,9 @@
 package util
 
 import (
+	"context"
 	"crypto/md5"
 	"encoding/hex"
-	"fmt"
 	"time"
 
 	"github.com/google/uuid"
@@ -14,7 +14,13 @@ var (
 	// Secret key used to keep user_id secret or just use a
 	// new uuid every time the server starts and stops and don't print or log it
 	// For testing use a string as it will not generate 100s of unique user id for same user.
-	secretHashKey = "REPLACE_THIS_WITH_SOME_SUPER_SECRET_KEY_AND_ROTATE_IT_REGULARY"
+	secretHashKey = db.Config.SecretHashKey
+
+	// ttl for 24 hours.
+	ttl = time.Duration(24) * time.Hour
+
+	// Ctx Context for redis
+	Ctx = context.Background()
 )
 
 // CreateUniqueVisitorID creates unique visitor id ( uuid ).
@@ -24,7 +30,7 @@ func CreateUniqueVisitorID(domain string, ip string, browser string, operatingSy
 	currentTime := time.Now()
 	currentDate := currentTime.Format("01-02-2006")
 
-	// Creating hash payload/
+	// Creating hash payload
 	hashBody := domain + ip + browser + operatingSystem + currentDate + secretHashKey
 
 	// Hashing data and returning it in string format.
@@ -42,21 +48,18 @@ func CreateUniqueVisitorID(domain string, ip string, browser string, operatingSy
 func GetUserUUID(visitorID string) string {
 
 	// Getting old user id if it exists.
-	val, err := db.GetKV(visitorID)
+	resp := db.RedisDB.Get(Ctx, visitorID)
+	val, err := resp.Result()
 	if err == nil {
-		return val
+		return val;
 	}
 
 	// Generating new UUID to store in database.
 	id := uuid.New()
 	newID := id.String()
 
-	// ttl for 24 hours.
-	ttl := time.Duration(24) * time.Hour
-	fmt.Printf("ttl: %v\n", ttl)
-
 	// Adding to redis.
-	rerr := db.AddKV(visitorID, newID, ttl)
+	rerr := db.RedisDB.Set(Ctx, visitorID, newID, ttl).Err()
 	if rerr != nil {
 		panic(rerr)
 	}

@@ -1,0 +1,9 @@
+{
+    "test_mode": true,
+    "test_ip": "1.1.1.1",
+    "database_url": "CLICKHOUSE_DATABASE_URL",
+    "secret_hash_key": "REPLACE_THIS_WITH_SOME_SUPER_SECRET_KEY_AND_ROTATE_IT_REGULARY",
+    "queries_file": "./queries/queries.sql",
+    "transaction_sleep_time": 1000,
+    "minimum_transaction_count": 100
+}
