@@ -17,10 +17,6 @@ func main() {
 	db.CreateConnection()
 	defer db.DB.Close() // Closing database after use.
 
-	// Loading Redis
-	db.CreateRedisClient()
-	defer db.RedisDB.Close()
-
 	// Load GEO IP database.
 	db.OpenGeoIPDb()
 	defer db.GeoDB.Close()
@@ -34,7 +30,7 @@ func main() {
 	// Transaction Goroutine to save events.
 	go event.RunTransaction()
 
-	// Initsilize Fiber
+	// Initialize Fiber
 	app := fiber.New()
 
 	// Add Middleware
@@ -43,7 +39,7 @@ func main() {
 	// Fiber Route Handling
 	FiberRouteHandler(app)
 
-	// Running fiber app on http://localhost:3000 and handling any possible errors.
+	// Running fiber app on http://localhost:8000 and handling any possible errors.
 	if err := app.Listen(":8000"); err != nil {
 		panic(err)
 	}

@@ -30,7 +30,7 @@ func SaveEventsTransaction() {
 		log.Println("Failed to start transaction.")
 	}
 
-	// Copying all events to local varible and making global varible nil for next batch.
+	// Copying all events to local variable and making global variable nil for next batch.
 	eventsData = AllEvents[:db.Config.MinimumTransactionCount]
 	AllEvents = AllEvents[db.Config.MinimumTransactionCount:]
 
@@ -38,8 +38,8 @@ func SaveEventsTransaction() {
 	for _, event := range eventsData {
 
 		_, rerr := tx.Exec(query,
-			event.VisitorID,
 			event.IsBot,
+			event.SessionID,
 			event.Event,
 			event.Time,
 			event.Domain,
@@ -60,13 +60,15 @@ func SaveEventsTransaction() {
 		)
 
 		if rerr != nil {
-			log.Println(rerr)
+			log.Panic(rerr)
 		}
 
 	}
 
 	// Ending Transaction.
-	tx.Commit()
+	if transactionError := tx.Commit(); transactionError != nil {
+		log.Panic("FAILED TO COMMIT TRANSACTION.")
+	}
 
 	log.Println("Finished transaction.")
 

@@ -1,17 +1,17 @@
 package db
 
 import (
+	"database/sql"
 	"encoding/json"
 	"io/ioutil"
 
-	"github.com/jmoiron/sqlx"
-	_ "github.com/mailru/go-clickhouse" // Clickhouse driver.
+	_ "github.com/lib/pq" // Driver for postgres SQL
 	"github.com/qustavo/dotsql"
 )
 
 // DB is database instance.
 var (
-	DB      *sqlx.DB
+	DB      *sql.DB
 	Queries *dotsql.DotSql
 	Config  Configuration
 )
@@ -22,7 +22,6 @@ type Configuration struct {
 	TestIP                  string `json:"test_ip"`
 	DatabaseURL             string `json:"database_url"`
 	QueriesFile             string `json:"queries_file"`
-	SecretHashKey           string `json:"secret_hash_key"`
 	TransactionSleepTime    int    `json:"transaction_sleep_time"`
 	MinimumTransactionCount int    `json:"minimum_transaction_count"`
 }
@@ -44,7 +43,7 @@ func LoadConfig() {
 		panic(err)
 	}
 
-	// Loading data to global varible for later use.
+	// Loading data to global variable for later use.
 	Config = config
 
 }
@@ -53,7 +52,7 @@ func LoadConfig() {
 func CreateConnection() {
 
 	// exactly the same as the built-in
-	db, err := sqlx.Connect("clickhouse", Config.DatabaseURL)
+	db, err := sql.Open("postgres", Config.DatabaseURL)
 	if err != nil {
 		panic(err)
 	}
@@ -63,7 +62,7 @@ func CreateConnection() {
 		panic(err)
 	}
 
-	// assigning db to global varible DB.
+	// assigning db to global variable DB.
 	DB = db
 
 }
@@ -87,7 +86,7 @@ func CreateTables() {
 
 	// Loading and executing "create-events-table" which
 	// creates table in database if it doesn't exits.
-	_, rerr := Queries.Exec(DB.DB, "create-events-table")
+	_, rerr := Queries.Exec(DB, "create-events-table")
 	if rerr != nil {
 		panic("Failed to load create events table.")
 	}

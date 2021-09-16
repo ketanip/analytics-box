@@ -8,7 +8,6 @@ import (
 	"github.com/gofiber/fiber/v2"
 	"github.com/ketanip/analytics/db"
 	"github.com/ketanip/analytics/event"
-	"github.com/ketanip/analytics/util"
 	"github.com/mssola/user_agent"
 )
 
@@ -17,7 +16,7 @@ import (
 // Method: POST
 func AnalyticsDataHandler(c *fiber.Ctx) error {
 
-	// Varibles to extract data
+	// Variables to extract data
 	payload := new(Payload)
 	data := new(PayloadData)
 
@@ -63,15 +62,13 @@ func ProcessIncomingData(userAgent string, ip string, data PayloadData) {
 	// Getting user country.
 	userCountry := db.IPParser(ip)
 
-	// Generating unique user ID.
-	userID := util.CreateUniqueVisitorID(data.Domain, ip, browser, UserAgentData.OS())
-
 	// Event object
 	event := event.Event{
 
 		// Core
-		VisitorID:          userID,
+		SessionID:          data.SessionID,
 		Event:              data.Event,
+		IsBot:              UserAgentData.Bot(),
 		Time:               time.Now(),
 		Domain:             data.Domain,
 		PageRoute:          data.PageRoute,

@@ -1,5 +1,7 @@
 package api
 
+import "github.com/google/uuid"
+
 // Payload from beacon.
 type Payload struct {
 	Data string `form:"data"`
@@ -7,12 +9,13 @@ type Payload struct {
 
 // PayloadData struct is payload type from the tracking script.
 type PayloadData struct {
-	Event              string `json:"event"`
-	Domain             string `json:"domain"`
-	PageRoute          string `json:"page_route"`
-	Duration           int    `json:"duration"`
-	ScrolledPercentage int    `json:"scrolled_percentage"`
-	Referrer           string `json:"referrer"`
+	Event              string    `json:"event"`
+	SessionID          uuid.UUID `json:"session_id"`
+	Domain             string    `json:"domain"`
+	PageRoute          string    `json:"page_route"`
+	Duration           int       `json:"duration"`
+	ScrolledPercentage int       `json:"scrolled_percentage"`
+	Referrer           string    `json:"referrer"`
 
 	UTMSource   string `json:"utm_source"`
 	UTMMedium   string `json:"utm_medium"`

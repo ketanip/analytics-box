@@ -1,5 +1,6 @@
 // Imports compatible with browserify.
 const TimeMe = require("timeme.js");
+const { GetCurrentSession, GetUTMParams, getScrollPercent } = require('./util');
 
 // Backend Analytics URL.
 const ANALYTICS_ENDPOINT = document.currentScript.getAttribute("analytics-endpoint");
@@ -11,7 +12,7 @@ const IDLE_TIME = 0;
 let max_scroll = 0;
 let utm_params = {};
 
-// Adding load listner to initialize timeme.
+// Adding load listener to initialize timeme.
 window.addEventListener("load", function () {
 
     // To track total time spent.
@@ -21,35 +22,7 @@ window.addEventListener("load", function () {
     });
 
 })
-// To Obtain UTM Params
-const GetUTMParms = () => {
 
-    // Getting all url parameters.
-    const urlParams = new URLSearchParams(window.location.search);
-
-    // Getting UTM paramaters from all parameters.
-    utm_params = {
-        utm_source: urlParams.get('utm_source'),
-        utm_medium: urlParams.get('utm_medium'),
-        utm_campaign: urlParams.get('utm_campaign'),
-    };
-
-
-};
-
-// To get page scroll percentage.
-const getScrollPercent = () => {
-
-    let h = document.documentElement,
-        b = document.body,
-        st = 'scrollTop',
-        sh = 'scrollHeight';
-
-    return Math.round(
-        ((h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight) * 100)
-    );
-
-};
 
 // Function to send data to backend for analytical purposes.
 const SendPayload = (event) => {
@@ -60,6 +33,7 @@ const SendPayload = (event) => {
     // Data to be sent.
     const data = {
         event,
+        session_id: GetCurrentSession(),
         domain: window.location.hostname,
         page_route: location.pathname,
         duration: Math.round(TimeMe.getTimeOnPageInSeconds(document.pathname)),
@@ -91,12 +65,12 @@ setInterval(() => {
 }, 500)
 
 // Get UTM Params in advance.
-GetUTMParms();
+GetUTMParams();
 
 // Adding SendEvent to window object so it can be accessed anywhere.
 window.SendEvent = SendPayload;
 
-// Page unload event listner.
+// Page unload event listener.
 window.addEventListener("unload", function () {
 
     if (TimeMe.getTimeOnCurrentPageInSeconds() > IDLE_TIME) {
