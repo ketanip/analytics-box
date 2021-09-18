@@ -17,7 +17,7 @@ window.addEventListener("load", function () {
 
     // To track total time spent.
     TimeMe.initialize({
-        currentPageName: location.pathname, // current page
+        currentPageName: document.pathname, // current page
         idleTimeoutInSeconds: 0 // seconds
     });
 

@@ -3,6 +3,7 @@ package main
 import (
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/logger"
+	"github.com/gofiber/fiber/v2/middleware/monitor"
 	"github.com/ketanip/analytics/api"
 	"github.com/ketanip/analytics/db"
 	"github.com/ketanip/analytics/event"
@@ -51,5 +52,11 @@ func FiberRouteHandler(app *fiber.App) {
 
 	// Route to handle any incoming beacon requests.
 	app.Post("/", api.AnalyticsDataHandler)
+
+	// Route to send analytics reports.
+	app.Get("/", api.ReportsAPI)
+
+	// I just wanted to test it out.
+	app.Get("/dashboard", monitor.New())
 
 }

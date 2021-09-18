@@ -1,17 +1,17 @@
 package db
 
 import (
-	"database/sql"
 	"encoding/json"
 	"io/ioutil"
 
+	"github.com/jmoiron/sqlx"
 	_ "github.com/lib/pq" // Driver for postgres SQL
 	"github.com/qustavo/dotsql"
 )
 
 // DB is database instance.
 var (
-	DB      *sql.DB
+	DB      *sqlx.DB
 	Queries *dotsql.DotSql
 	Config  Configuration
 )
@@ -52,7 +52,7 @@ func LoadConfig() {
 func CreateConnection() {
 
 	// exactly the same as the built-in
-	db, err := sql.Open("postgres", Config.DatabaseURL)
+	db, err := sqlx.Connect("postgres", Config.DatabaseURL)
 	if err != nil {
 		panic(err)
 	}

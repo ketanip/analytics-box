@@ -24,7 +24,6 @@ CREATE TABLE IF NOT EXISTS "events" (
 );
 
 
-
 -- name: create-event
 INSERT INTO "events" (
         is_bot,
@@ -68,3 +67,99 @@ VALUES (
         $18,
         $19
 );
+
+
+-- name: get-event-analysis
+SELECT
+    COUNT(DISTINCT(session_id)) AS unqiue_sessions,
+    COUNT(session_id) AS total_sessions,
+    AVG(duration) AS average_duration,
+    date(time) as value
+FROM "events"
+WHERE 
+    event=:event
+    AND domain=:domain
+    AND time>=:start_date
+    AND time<=:end_date
+    {DYNAMICALLY_GENERATED_WHERE_QUERY}
+GROUP BY value;
+
+
+-- name: get-referer-analysis
+SELECT
+    COUNT(DISTINCT(session_id)) AS unqiue_sessions,
+    COUNT(session_id) AS total_sessions,
+    AVG(duration) AS average_duration,
+    referrer as value
+FROM "events"
+WHERE 
+    event=:event
+    AND domain=:domain
+    AND time>=:start_date
+    AND time<=:end_date
+    {DYNAMICALLY_GENERATED_WHERE_QUERY}
+GROUP BY value;
+
+
+-- name: get-os-analysis
+SELECT
+    COUNT(DISTINCT(session_id)) AS unqiue_sessions,
+    COUNT(session_id) AS total_sessions,
+    AVG(duration) AS average_duration,
+    operating_system as value
+FROM "events"
+WHERE 
+    event=:event
+    AND domain=:domain
+    AND time>=:start_date
+    AND time<=:end_date
+    {DYNAMICALLY_GENERATED_WHERE_QUERY}
+GROUP BY value;
+
+
+-- name: get-browser-analysis
+SELECT
+    COUNT(DISTINCT(session_id)) AS unqiue_sessions,
+    COUNT(session_id) AS total_sessions,
+    AVG(duration) AS average_duration,
+    browser as value
+FROM "events"
+WHERE 
+    event=:event
+    AND domain=:domain
+    AND time>=:start_date
+    AND time<=:end_date
+    {DYNAMICALLY_GENERATED_WHERE_QUERY}
+GROUP BY value;
+
+
+-- name: get-country-analysis
+SELECT
+    COUNT(DISTINCT(session_id)) AS unqiue_sessions,
+    COUNT(session_id) AS total_sessions,
+    AVG(duration) AS average_duration,
+    country_code as value
+FROM "events"
+WHERE 
+    event=:event
+    AND domain=:domain
+    AND time>=:start_date
+    AND time<=:end_date
+    {DYNAMICALLY_GENERATED_WHERE_QUERY}
+GROUP BY value;
+
+
+-- name: get-page-view-analysis
+SELECT
+    COUNT(DISTINCT(session_id)) AS unqiue_sessions,
+    COUNT(session_id) AS total_sessions,
+    AVG(duration) AS average_duration,
+    page_route as value
+FROM "events"
+WHERE 
+    event=:event
+    AND domain=:domain
+    AND time>=:start_date
+    AND time<=:end_date
+    {DYNAMICALLY_GENERATED_WHERE_QUERY}
+GROUP BY value;

@@ -1,7 +1,7 @@
 {
-  "name": "analytics-tracing-script",
+  "name": "analytics-box-tracker",
   "version": "1.0.0",
-  "description": "Tracking script for a privacy frinedly analytics tool. [Name not thought yet].",
+  "description": "Tracker for analytics-box.",
   "main": "./src/main.js",
   "dependencies": {
     "timeme": "^1.0.0",
@@ -14,7 +14,7 @@
   },
   "scripts": {
     "dev": "parcel ./index.html",
-    "build": "browserify ./src/main.js -o ./dist/tracking-script.js"
+    "build": "browserify ./src/main.js -o ./dist/script.js"
   },
   "repository": {
     "type": "git",

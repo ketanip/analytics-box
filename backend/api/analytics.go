@@ -2,13 +2,11 @@ package api
 
 import (
 	"encoding/json"
-	"strings"
 	"time"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/ketanip/analytics/db"
-	"github.com/ketanip/analytics/event"
-	"github.com/mssola/user_agent"
+	"github.com/ketanip/analytics/reports"
 )
 
 // AnalyticsDataHandler is used to handle incoming beacon request.
@@ -49,53 +47,60 @@ func AnalyticsDataHandler(c *fiber.Ctx) error {
 
 }
 
-// ProcessIncomingData processes incoming data in a go routine
-// so it becomes a non blocking operation and it reduced response time from 3-4 ms
-// down to 0-1 ms.
-func ProcessIncomingData(userAgent string, ip string, data PayloadData) {
+// ReportsAPI return report object for given filters.
+func ReportsAPI(c *fiber.Ctx) error {
 
-	// Parsing user agent.
-	UserAgentData := user_agent.New(userAgent)
-	browser, browserVersionRaw := UserAgentData.Browser()
-	browserVersion := strings.Split(browserVersionRaw, ".")[0]
+	// Getting data
+	start := c.Query("start")
+	end := c.Query("end")
+	domain := c.Query("domain")
+	event := c.Query("event")
 
-	// Getting user country.
-	userCountry := db.IPParser(ip)
-
-	// Event object
-	event := event.Event{
-
-		// Core
-		SessionID:          data.SessionID,
-		Event:              data.Event,
-		IsBot:              UserAgentData.Bot(),
-		Time:               time.Now(),
-		Domain:             data.Domain,
-		PageRoute:          data.PageRoute,
-		Duration:           data.Duration,
-		ScrolledPercentage: data.ScrolledPercentage,
-
-		// User-Agent
-		OperatingSystem:        UserAgentData.OSInfo().Name,
-		OperatingSystemVersion: UserAgentData.OSInfo().Version,
-		Browser:                browser,
-		BrowserVersion:         browserVersion,
-
-		// Referrer
-		CountryCode: userCountry,
-		Referrer:    data.Referrer,
-
-		// UTM Data
-		UTMSource:   data.UTMSource,
-		UTMMedium:   data.UTMMedium,
-		UTMCampaign: data.UTMMedium,
-
-		// Device Data
-		DeviceHeight: data.DeviceHeight,
-		DeviceWidth:  data.DeviceWidth,
+	if start == "" {
+		c.SendString("Start Date not given.")
 	}
 
-	// Adding event to transaction que.
-	event.AddEvent()
+	if end == "" {
+		c.SendString("End Date not given.")
+	}
+
+	if domain == "" {
+		c.SendString("Domain not given.")
+	}
+
+	if event == "" {
+		c.SendString("Event not given.")
+	}
+
+	// Parsing Dates
+	startDate, _ := time.Parse("2006-01-02", start)
+	endDate, _ := time.Parse("2006-01-02", end)
+
+	// Making report filter.
+	report := reports.Filter{
+		Domain:          domain,
+		Event:           event,
+		StartDate:       startDate,
+		EndDate:         endDate,
+		PageRoute:       c.Query("page_route"),
+		Referer:         c.Query("referer"),
+		Browser:         c.Query("browser"),
+		OperatingSystem: c.Query("os"),
+		CountryCode:     c.Query("country_code"),
+		WhereQuery:      "",
+	}
+
+	// Genrating and getting all reports.
+	report.GenerateWhereQueries()
+	report.GetDataAnalysis("os")
+	report.GetDataAnalysis("event")
+	report.GetDataAnalysis("country")
+	report.GetDataAnalysis("browser")
+	report.GetDataAnalysis("referer")
+	report.GetDataAnalysis("page-view")
+
+	// Sending reports.
+	c.JSON(report)
+	return nil
 
 }
