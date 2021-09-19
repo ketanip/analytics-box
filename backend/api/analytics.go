@@ -58,18 +58,22 @@ func ReportsAPI(c *fiber.Ctx) error {
 
 	if start == "" {
 		c.SendString("Start Date not given.")
+		return nil
 	}
 
 	if end == "" {
 		c.SendString("End Date not given.")
+		return nil
 	}
 
 	if domain == "" {
 		c.SendString("Domain not given.")
+		return nil
 	}
 
 	if event == "" {
 		c.SendString("Event not given.")
+		return nil
 	}
 
 	// Parsing Dates
@@ -92,6 +96,7 @@ func ReportsAPI(c *fiber.Ctx) error {
 
 	// Genrating and getting all reports.
 	report.GenerateWhereQueries()
+	report.GetOverview()
 	report.GetDataAnalysis("os")
 	report.GetDataAnalysis("event")
 	report.GetDataAnalysis("country")

@@ -69,6 +69,19 @@ VALUES (
 );
 
 
+-- name: get-overview-analysis
+SELECT
+    COUNT(DISTINCT(session_id)) AS unqiue_sessions,
+    COUNT(session_id) AS total_sessions,
+    AVG(duration) AS average_duration
+FROM events
+WHERE
+    event=:event
+    AND domain=:domain
+    AND time>=:start_date
+    AND time<=:end_date
+    {DYNAMICALLY_GENERATED_WHERE_QUERY};
+
 -- name: get-event-analysis
 SELECT
     COUNT(DISTINCT(session_id)) AS unqiue_sessions,

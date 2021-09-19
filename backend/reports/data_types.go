@@ -19,12 +19,13 @@ type Filter struct {
 
 // Report struct.
 type Report struct {
-	Analysis         []BaseAnalysis `json:"analysis"`
-	Referers         []BaseAnalysis `json:"referers"`
-	OperatingSystems []BaseAnalysis `json:"operating_systems"`
-	Browsers         []BaseAnalysis `json:"browsers"`
-	PageViews        []BaseAnalysis `json:"page_views"`
-	Countries        []BaseAnalysis `json:"countries"`
+	Overview         OverviewAnalysis `json:"overview"`
+	Analysis         []BaseAnalysis   `json:"analysis"`
+	Referers         []BaseAnalysis   `json:"referers"`
+	OperatingSystems []BaseAnalysis   `json:"operating_systems"`
+	Browsers         []BaseAnalysis   `json:"browsers"`
+	PageViews        []BaseAnalysis   `json:"page_views"`
+	Countries        []BaseAnalysis   `json:"countries"`
 }
 
 // BaseAnalysis struct.
@@ -33,4 +34,11 @@ type BaseAnalysis struct {
 	TotalSessions   int     `json:"total_sessions"`
 	UniqueSessions  int     `json:"unique_sessions"`
 	DurationSeconds float32 `json:"duration_seconds"`
+}
+
+// OverviewAnalysis struct.
+type OverviewAnalysis struct {
+	TotalSessions   int     `json:"total_sessions"`
+	UniqueSessions  int     `json:"unique_sessions"`
+	AverageDuration float32 `json:"average_duration"`
 }
