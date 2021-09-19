@@ -1,4 +1,11 @@
-<img src="./assets/logo.png" width="100"></img>
+# Analytics Box
+
+
+![](./assets/c/1.jpg)
+![](./assets/c/2.jpg)
+![](./assets/c/3.jpg)
+![](./assets/c/4.jpg)
+
 
 Hello guys, this is privacy friendly analytics tool, Analytics Box for web written in go. It ensures user privacy but at the same time also provides key metrics that will ensure your business does good while keeping user privacy in mind.
 
