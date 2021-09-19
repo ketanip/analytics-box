@@ -4,7 +4,7 @@
 
 Hello guys, this is privacy friendly analytics tool, Analytics Box for web written in go. It ensures user privacy but at the same time also provides key metrics that will ensure your business does good while keeping user privacy in mind.
 
-**Important**: This project is mostly ready to use in production for now you can use a dashboard like Metabase with for dashboard. The dashboard will be added to this project but not soon as I've my exams. But backend it functional as per my knowledge it doesn't have any bugs, if you encounter you can just create a issue I will try to fix if I have some spare time or you can fix it and just create a pull request I'll merge it.
+**Important**: Analytics box now has a dashboard tailored to its use, it is not complete tho it lacks features like filters which are implemented on backend and is matter of time before they are made working in frontend.
 
 ### What is Analytics Box ?
 
