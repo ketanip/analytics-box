@@ -17,5 +17,4 @@ Analytics box is analytics tool like google analytics but instead of ripping use
 6. Uses Postgres so it can scale without using a lot of resources.
 7. Only requires postgres for production.
 
-### Read the docs and more about the project [here](https://ketanip.gitbook.io/analytics-box).
-It may be out dated.
+Docs comming soon.
