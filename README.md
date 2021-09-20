@@ -1,10 +1,11 @@
 # Analytics Box
 
 ![](./assets/c/1.jpg)
+![](./assets/c/2.jpg)
 
 Hello guys, this is privacy friendly analytics tool, Analytics Box for web written in go. It ensures user privacy but at the same time also provides key metrics that will ensure your business does good while keeping user privacy in mind.
 
-**Important**: Analytics box now has a dashboard tailored to its use, it is not complete tho it lacks features like filters which are implemented on backend and is matter of time before they are made working in frontend.
+**Important**: Dashboard is now functional Analytics box can now be used by brave souls, there may be some more breaking changes so beware of it and frontend is not in the best condition so you may encounter some bugs and if you find then please create a issue and let me know I will fix it.
 
 ### What is Analytics Box ?
 
@@ -19,4 +20,6 @@ Analytics box is analytics tool like google analytics but instead of ripping use
 6. Uses Postgres so it can scale without using a lot of resources.
 7. Only requires postgres for production.
 
-Docs comming soon.
+### Project Roadmap
+[] Add auth.
+[] Add Docs.

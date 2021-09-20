@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"@agile-ts/react@^0.2.1":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@agile-ts/react/-/react-0.2.1.tgz#0d288cb99ac8fc4a9077061f5568f193ad1969fd"
+  integrity sha512-/jK/p2XAIdUNb3b5MGz05eY5CWKBefk8ZIW1+Gp30m9bwi9un4klq/3M2QMAjpdUwsUC4K2f0gaW6+Va+JTRGQ==
+
 "@babel/code-frame@7.10.4":
   version "7.10.4"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.10.4.tgz#168da1a36e90da68ae8d49c0f1b48c7c6249213a"
@@ -1091,7 +1096,7 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.0.0", "@babel/runtime@^7.10.3", "@babel/runtime@^7.12.13", "@babel/runtime@^7.12.5", "@babel/runtime@^7.13.10", "@babel/runtime@^7.9.2":
+"@babel/runtime@^7.0.0", "@babel/runtime@^7.10.3", "@babel/runtime@^7.12.13", "@babel/runtime@^7.12.5", "@babel/runtime@^7.13.10", "@babel/runtime@^7.13.8", "@babel/runtime@^7.9.2":
   version "7.15.4"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.15.4.tgz#fd17d16bfdf878e6dd02d19753a39fa8a8d9c84a"
   integrity sha512-99catp6bHCaxr4sJ/DbTGgHS4+Rs2RVd2g7iOap6SLGPDknRK9ztKNsE/Fg6QhSeh1FGE5f6gHGQmvvn3I3xhw==
@@ -1301,6 +1306,14 @@
   integrity sha512-w+TkBr8eA8023j1SdhBzCFrEeU4lolf96cYVz0t/FVUBdIHYPGt56iHdaE2HYXW8Jyp15WLZcJJZQnZo91GRww==
   dependencies:
     "@chakra-ui/utils" "1.8.2"
+
+"@chakra-ui/icons@^1.0.15":
+  version "1.0.15"
+  resolved "https://registry.yarnpkg.com/@chakra-ui/icons/-/icons-1.0.15.tgz#90b0e3c2c161c5a100d6b83a277941b22945f880"
+  integrity sha512-MMuPwmeCil9vAXceIN/Fxn6CNHbhkLofFQaKUfs+UaBsviiU2tvS0nqGaxm/9FNzLr5ithPVWpbz3uV7DXc77g==
+  dependencies:
+    "@chakra-ui/icon" "1.1.11"
+    "@types/react" "^17.0.0"
 
 "@chakra-ui/image@1.0.19":
   version "1.0.19"
@@ -2105,6 +2118,11 @@
     mkdirp "^1.0.4"
     rimraf "^3.0.2"
 
+"@nx-js/observer-util@^4.2.2":
+  version "4.2.2"
+  resolved "https://registry.yarnpkg.com/@nx-js/observer-util/-/observer-util-4.2.2.tgz#faea1bc61936653486d1b5dec7485220991e628d"
+  integrity sha512-9OayX1xkdGjdnsDiO2YdaYJ6aMyCF7/NY4QWVgIgjSAZJ4OX2fD766Ts79hEzBscenQy2DCaSoY8VkguIMB1ZA==
+
 "@pmmmwh/react-refresh-webpack-plugin@0.4.3":
   version "0.4.3"
   resolved "https://registry.yarnpkg.com/@pmmmwh/react-refresh-webpack-plugin/-/react-refresh-webpack-plugin-0.4.3.tgz#1eec460596d200c0236bf195b078a5d1df89b766"
@@ -2148,6 +2166,13 @@
   dependencies:
     prop-types "^15.7.2"
     tslib "^2.1.0"
+
+"@risingstack/react-easy-state@^6.3.0":
+  version "6.3.0"
+  resolved "https://registry.yarnpkg.com/@risingstack/react-easy-state/-/react-easy-state-6.3.0.tgz#3590031f7382c5c6c7866790ba7a72e557a12407"
+  integrity sha512-AGLrzvwloZL7dgagwRkxJaq7bcDsOGdHrCpHZIlMIxcFLdFr5IpD2/kcmTlC34H682pvfIl1lzNxBw72la10aA==
+  dependencies:
+    "@nx-js/observer-util" "^4.2.2"
 
 "@rollup/plugin-node-resolve@^7.1.1":
   version "7.1.3"
@@ -2555,6 +2580,15 @@
   version "16.14.15"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-16.14.15.tgz#95d8fa3148050e94bcdc5751447921adbe19f9e6"
   integrity sha512-jOxlBV9RGZhphdeqJTCv35VZOkjY+XIEY2owwSk84BNDdDv2xS6Csj6fhi+B/q30SR9Tz8lDNt/F2Z5RF3TrRg==
+  dependencies:
+    "@types/prop-types" "*"
+    "@types/scheduler" "*"
+    csstype "^3.0.2"
+
+"@types/react@^17.0.0":
+  version "17.0.21"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.21.tgz#069c43177cd419afaab5ce26bb4e9056549f7ea6"
+  integrity sha512-GzzXCpOthOjXvrAUFQwU/svyxu658cwu00Q9ugujS4qc1zXgLFaO0kS2SLOaMWLt2Jik781yuHCWB7UcYdGAeQ==
   dependencies:
     "@types/prop-types" "*"
     "@types/scheduler" "*"
@@ -3891,9 +3925,9 @@ caniuse-api@^3.0.0:
     lodash.uniq "^4.5.0"
 
 caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000981, caniuse-lite@^1.0.30001109, caniuse-lite@^1.0.30001125, caniuse-lite@^1.0.30001181:
-  version "1.0.30001191"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001191.tgz#bacb432b6701f690c8c5f7c680166b9a9f0843d9"
-  integrity sha512-xJJqzyd+7GCJXkcoBiQ1GuxEiOBCLQ0aVW9HMekifZsAVGdj5eJ4mFB9fEhSHipq9IOk/QXFJUiIr9lZT+EsGw==
+  version "1.0.30001258"
+  resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001258.tgz"
+  integrity sha512-RBByOG6xWXUp0CR2/WU2amXz3stjKpSl5J1xU49F1n2OxD//uBZO4wCKUiG+QMGf7CHGfDDcqoKriomoGVxTeA==
 
 capture-exit@^2.0.0:
   version "2.0.0"
@@ -5044,6 +5078,17 @@ duplexify@^3.4.2, duplexify@^3.6.0:
     inherits "^2.0.1"
     readable-stream "^2.0.0"
     stream-shift "^1.0.0"
+
+easy-peasy@^5.0.3:
+  version "5.0.3"
+  resolved "https://registry.yarnpkg.com/easy-peasy/-/easy-peasy-5.0.3.tgz#a084f630193c8084065bb9de08ee4cc8317e7d40"
+  integrity sha512-FRO1ClPWIhgfui7bSEOFqA/b1GuSlf98+5DuW1r1W1DC85nrJcke3rYemyKj/1B2kSzH90Ze6FM5uakUgqkzcQ==
+  dependencies:
+    "@babel/runtime" "^7.13.8"
+    immer "^8.0.1"
+    redux "^4.0.5"
+    redux-thunk "^2.3.0"
+    ts-toolbelt "^9.3.12"
 
 ecc-jsbn@~0.1.1:
   version "0.1.2"
@@ -6573,6 +6618,11 @@ immer@8.0.1:
   version "8.0.1"
   resolved "https://registry.yarnpkg.com/immer/-/immer-8.0.1.tgz#9c73db683e2b3975c424fb0572af5889877ae656"
   integrity sha512-aqXhGP7//Gui2+UrEtvxZxSquQVXTpZ7KDxfCcKAF3Vysvw0CViVaW9RZ1j1xlIYqaaaipBoqdqeibkc18PNvA==
+
+immer@^8.0.1:
+  version "8.0.4"
+  resolved "https://registry.yarnpkg.com/immer/-/immer-8.0.4.tgz#3a21605a4e2dded852fb2afd208ad50969737b7a"
+  integrity sha512-jMfL18P+/6P6epANRvRk6q8t+3gGhqsJ9EuJ25AXE+9bNTYtssvzeYbEd0mXRYWCmmXSIbnlpz6vd6iJlmGGGQ==
 
 import-cwd@^2.0.0:
   version "2.1.0"
@@ -10236,6 +10286,18 @@ redent@^3.0.0:
     indent-string "^4.0.0"
     strip-indent "^3.0.0"
 
+redux-thunk@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/redux-thunk/-/redux-thunk-2.3.0.tgz#51c2c19a185ed5187aaa9a2d08b666d0d6467622"
+  integrity sha512-km6dclyFnmcvxhAcrQV2AkZmPQjzPDjgVlQtR0EQjxZPyJ0BnMf3in1ryuR8A2qU0HldVRfxYXbFSKlI3N7Slw==
+
+redux@^4.0.5:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/redux/-/redux-4.1.1.tgz#76f1c439bb42043f985fbd9bf21990e60bd67f47"
+  integrity sha512-hZQZdDEM25UY2P493kPYuKqviVwZ58lEmGQNeQ+gXa+U0gYPUBf7NKYazbe3m+bs/DzM/ahN12DbF+NG8i0CWw==
+  dependencies:
+    "@babel/runtime" "^7.9.2"
+
 regenerate-unicode-properties@^8.2.0:
   version "8.2.0"
   resolved "https://registry.yarnpkg.com/regenerate-unicode-properties/-/regenerate-unicode-properties-8.2.0.tgz#e5de7111d655e7ba60c057dbe9ff37c87e65cdec"
@@ -11650,6 +11712,11 @@ ts-pnp@1.2.0, ts-pnp@^1.1.6:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/ts-pnp/-/ts-pnp-1.2.0.tgz#a500ad084b0798f1c3071af391e65912c86bca92"
   integrity sha512-csd+vJOb/gkzvcCHgTGSChYpy5f1/XKNsmvBGO4JXS+z1v2HobugDz4s1IeFXM3wZB44uczs+eazB5Q/ccdhQw==
+
+ts-toolbelt@^9.3.12:
+  version "9.6.0"
+  resolved "https://registry.yarnpkg.com/ts-toolbelt/-/ts-toolbelt-9.6.0.tgz#50a25426cfed500d4a09bd1b3afb6f28879edfd5"
+  integrity sha512-nsZd8ZeNUzukXPlJmTBwUAuABDe/9qtVDelJeT/qW0ow3ZS3BsQJtNkan1802aM9Uf68/Y8ljw86Hu0h5IUW3w==
 
 tsconfig-paths@^3.9.0:
   version "3.9.0"

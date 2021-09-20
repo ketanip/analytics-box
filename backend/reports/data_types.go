@@ -1,6 +1,8 @@
 package reports
 
-import "time"
+import (
+	"time"
+)
 
 // Filter struct.
 type Filter struct {
@@ -30,15 +32,15 @@ type Report struct {
 
 // BaseAnalysis struct.
 type BaseAnalysis struct {
-	Value           string  `json:"value"`
-	TotalSessions   int     `json:"total_sessions"`
-	UniqueSessions  int     `json:"unique_sessions"`
-	DurationSeconds float32 `json:"duration_seconds"`
+	Value           *string  `json:"value"`
+	TotalSessions   *int     `json:"total_sessions"`
+	UniqueSessions  *int     `json:"unique_sessions"`
+	DurationSeconds *float32 `json:"duration_seconds"`
 }
 
 // OverviewAnalysis struct.
 type OverviewAnalysis struct {
-	TotalSessions   int     `json:"total_sessions"`
-	UniqueSessions  int     `json:"unique_sessions"`
-	AverageDuration float32 `json:"average_duration"`
+	TotalSessions   *int     `json:"total_sessions"`
+	UniqueSessions  *int     `json:"unique_sessions"`
+	AverageDuration *float32 `json:"average_duration"`
 }

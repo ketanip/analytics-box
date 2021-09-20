@@ -1,5 +1,5 @@
 // Filter
-type filter = {
+type response = {
     domain: string;
     event: string;
 
@@ -42,7 +42,7 @@ type overviewAnalysis = {
 }
 
 export {
-    filter,
+    response,
     report,
     baseAnalysis,
     overviewAnalysis,

@@ -1,15 +1,18 @@
 import React from 'react'
-import { filter } from '../types/analysis';
+import { response } from '../types/analysis';
 import { Box } from '@chakra-ui/react';
 import ReactECharts from 'echarts-for-react';
 import Overview from './Overview';
+import dataStore from '../store/store';
 
-type props = {
-    filter: filter;
-}
 
-const MainChart: React.FC<props> = ({ filter }) => {
+const MainChart: React.FC = () => {
 
+    const filter: response = dataStore.data
+    console.log(
+        "MAIN CHART"
+    )
+  
     const data = {
         total_sessions: filter.data.analysis.map(item => item.total_sessions),
         unique_sessions: filter.data.analysis.map(item => item.unique_sessions),
@@ -63,13 +66,13 @@ const MainChart: React.FC<props> = ({ filter }) => {
     return (
         <>
             <Box p={5} rounded="lg" bg="white" padding={5} mt={8} shadow="md">
-                
+
                 {/* Overview */}
-                <Overview overview={filter.data.overview}  />
-                
+                <Overview overview={filter.data.overview} />
+
                 {/* Main Charts */}
                 <ReactECharts option={options} style={{ height: 500 }} />
-                
+
             </Box>
         </>
     );
