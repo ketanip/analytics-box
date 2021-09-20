@@ -21,5 +21,5 @@ Analytics box is analytics tool like google analytics but instead of ripping use
 7. Only requires postgres for production.
 
 ### Project Roadmap
-[] Add auth.
-[] Add Docs.
+1. Add auth.
+2. Add Docs.
