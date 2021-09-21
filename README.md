@@ -26,6 +26,7 @@ Analytics box is analytics tool like google analytics but instead of ripping use
 6. Super low resource consumption.
 7. Uses Postgres so it can scale a lot without using a lot of resources.
 
-### Project Roadmap
-1. Add auth.
-2. Add Docs.
+# Todo
+- [X] Added Docs.
+- [ ] Add auth.
+
