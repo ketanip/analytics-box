@@ -8,8 +8,10 @@ type props = {
     data: baseAnalysis[];
 }
 
+// Map shown at bottom of the dashboard.
 const DashboardWorldMap: React.FC<props> = ({ data }) => {
 
+    // Data for map.
     const map_data = data.map(item => { return { country: item.value, value: item.unique_sessions } });
 
     return (

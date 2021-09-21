@@ -8,11 +8,10 @@ import dataStore from '../store/store';
 
 const MainChart: React.FC = () => {
 
+    // Getting data.
     const filter: response = dataStore.data
-    console.log(
-        "MAIN CHART"
-    )
-  
+    
+    // Converting data to use in charts.
     const data = {
         total_sessions: filter.data.analysis.map(item => item.total_sessions),
         unique_sessions: filter.data.analysis.map(item => item.unique_sessions),
@@ -20,6 +19,7 @@ const MainChart: React.FC = () => {
         dates: filter.data.analysis.map(item => item.value.slice(0, 10))
     }
 
+    // Options for echart.
     const options = {
         tooltip: {
             trigger: 'axis'

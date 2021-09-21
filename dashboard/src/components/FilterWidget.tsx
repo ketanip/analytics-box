@@ -8,11 +8,13 @@ type props = {
     filter_data: any;
 }
 
+// FilterWidget contains filter GUI for data.
 const FilterWidget: React.FC<props> = ({ filter, filter_data }) => {
 
+    // Modal hooks.
     const { isOpen, onOpen, onClose } = useDisclosure()
 
-
+    // Filter parameters.
     const [event, setEvent] = useState(filter.event);
     const [domain, setDomain] = useState(filter.domain)
     const [startDate, setStartDate] = useState(filter.start_date)
@@ -23,7 +25,7 @@ const FilterWidget: React.FC<props> = ({ filter, filter_data }) => {
     const [os, setOS] = useState(filter.operating_system)
     const [browser, setBrowser] = useState(filter.browser)
 
-
+    // Form handler
     const HandleChangeDataFilter = (e: any) => {
 
         let new_filter = {

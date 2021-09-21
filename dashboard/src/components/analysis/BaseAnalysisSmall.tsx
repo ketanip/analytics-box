@@ -8,6 +8,8 @@ type props = {
     table_title: string;
 }
 
+// BaseAnalysisTable creates contains a table with details of base analysis object
+// including value and unique_sessions.
 const BaseAnalysisSmall: React.FC<props> = ({ data, table_title }) => {
 
     // Getting top 10 for preview.

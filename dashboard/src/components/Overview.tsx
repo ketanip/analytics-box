@@ -8,6 +8,7 @@ type props = {
 
 const Overview: React.FC<props> = ({ overview }) => {
 
+    // Data for overview widget.
     const data = [
         {
             name: "Total Views",

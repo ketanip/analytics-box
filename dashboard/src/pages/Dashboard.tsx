@@ -7,8 +7,10 @@ import FilterWidget from '../components/FilterWidget';
 import dataStore from '../store/store';
 import { view } from '@risingstack/react-easy-state';
 
+// Getting initial data.
 dataStore.getInitialData();
 
+// Exporting Dashboard page.
 export default view(() => (
     <>
         <Box px={12} pt={5} bg="gray.50" minH="container.md" pb={10}>
