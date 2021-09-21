@@ -2,7 +2,7 @@
 CREATE TABLE IF NOT EXISTS "events" (
     id                       BIGSERIAL,
     is_bot                   BOOLEAN       NOT NULL,
-    session_id               UUID          NOT NULL,
+    session_id               VARCHAR(21)   NOT NULL,
     event                    VARCHAR(100)  NOT NULL,
     time                     TIMESTAMP     NOT NULL,
     domain                   VARCHAR(253)  NOT NULL,

@@ -2,8 +2,6 @@ package event
 
 import (
 	"time"
-
-	"github.com/google/uuid"
 )
 
 // Event type.
@@ -28,9 +26,9 @@ type Event struct {
 	BrowserVersion         string `json:"browser_version" db:"browser_version"`
 
 	// IP Data
-	SessionID   uuid.UUID `db:"session_id"`
-	IsBot       bool      `db:"is_bot"`
-	CountryCode string    `json:"country_code" db:"country_code"`
+	SessionID   string `db:"session_id"`
+	IsBot       bool   `db:"is_bot"`
+	CountryCode string `json:"country_code" db:"country_code"`
 
 	// UTM Data
 	UTMSource   string `json:"utm_source" db:"utm_source"`

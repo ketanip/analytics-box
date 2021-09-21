@@ -2,6 +2,9 @@ import { store } from '@risingstack/react-easy-state';
 import { response } from '../types/analysis';
 import { GetData } from './util';
 
+const date = new Date();
+const start_date = new Date(Date.UTC(date.getUTCFullYear(), date.getMonth(), date.getUTCDate() - 7)).toISOString().split('T')[0];
+const end_date = new Date(Date.UTC(date.getUTCFullYear(), date.getMonth(), date.getUTCDate() + 1)).toISOString().split('T')[0];
 
 const dataStore: any = store({
 
@@ -17,8 +20,8 @@ const dataStore: any = store({
     filter: {
         domain: "localhost",
         event: "page_view",
-        start: "2021-08-25",
-        end: "2021-09-30",
+        start:  start_date,
+        end: end_date,
         country_code: "",
         referer: "",
         page_route: "",
