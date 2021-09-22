@@ -103,6 +103,9 @@ func ReportsAPI(c *fiber.Ctx) error {
 	report.GetDataAnalysis("browser")
 	report.GetDataAnalysis("referer")
 	report.GetDataAnalysis("page-view")
+	report.GetDataAnalysis("utm-source")
+	report.GetDataAnalysis("utm-medium")
+	report.GetDataAnalysis("utm-campaign")
 
 	// Sending reports.
 	c.JSON(report)

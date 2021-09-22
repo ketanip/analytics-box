@@ -15,6 +15,22 @@ type response = {
     data: report;
 }
 
+// type filter
+type filter = {
+    domain: string;
+    event: string;
+
+    start_date: Date;
+    end_date: Date;
+
+    page_route: string;
+    referer: string;
+    browser: string;
+    operating_system: string;
+    country_code: string;
+
+};
+
 // Report
 type report = {
     overview: overviewAnalysis;
@@ -24,6 +40,9 @@ type report = {
     browsers: baseAnalysis[];
     page_views: baseAnalysis[];
     countries: baseAnalysis[];
+    utm_medium: baseAnalysis[];
+    utm_sources: baseAnalysis[];
+    utm_campaigns: baseAnalysis[];
 }
 
 // BaseAnalysis
@@ -44,6 +63,7 @@ type overviewAnalysis = {
 export {
     response,
     report,
+    filter,
     baseAnalysis,
     overviewAnalysis,
 };

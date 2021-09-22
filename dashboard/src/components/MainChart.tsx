@@ -10,7 +10,7 @@ const MainChart: React.FC = () => {
 
     // Getting data.
     const filter: response = dataStore.data
-    
+
     // Converting data to use in charts.
     const data = {
         total_sessions: filter.data.analysis.map(item => item.total_sessions),
@@ -69,6 +69,7 @@ const MainChart: React.FC = () => {
 
                 {/* Overview */}
                 <Overview overview={filter.data.overview} />
+
 
                 {/* Main Charts */}
                 <ReactECharts option={options} style={{ height: 500 }} />

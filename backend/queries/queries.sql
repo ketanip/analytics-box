@@ -176,3 +176,49 @@ WHERE
     AND time<=:end_date
     {DYNAMICALLY_GENERATED_WHERE_QUERY}
 GROUP BY value;
+
+
+-- name: get-utm-source-analysis
+SELECT
+    COUNT(DISTINCT(session_id)) AS unqiue_sessions,
+    COUNT(session_id) AS total_sessions,
+    AVG(duration) AS average_duration,
+    utm_source as value
+FROM "events"
+WHERE 
+    event=:event
+    AND domain=:domain
+    AND time>=:start_date
+    AND time<=:end_date
+    {DYNAMICALLY_GENERATED_WHERE_QUERY}
+GROUP BY value;
+
+-- name: get-utm-medium-analysis
+SELECT
+    COUNT(DISTINCT(session_id)) AS unqiue_sessions,
+    COUNT(session_id) AS total_sessions,
+    AVG(duration) AS average_duration,
+    utm_medium as value
+FROM "events"
+WHERE 
+    event=:event
+    AND domain=:domain
+    AND time>=:start_date
+    AND time<=:end_date
+    {DYNAMICALLY_GENERATED_WHERE_QUERY}
+GROUP BY value;
+
+-- name: get-utm-campaign-analysis
+SELECT
+    COUNT(DISTINCT(session_id)) AS unqiue_sessions,
+    COUNT(session_id) AS total_sessions,
+    AVG(duration) AS average_duration,
+    utm_campaign as value
+FROM "events"
+WHERE 
+    event=:event
+    AND domain=:domain
+    AND time>=:start_date
+    AND time<=:end_date
+    {DYNAMICALLY_GENERATED_WHERE_QUERY}
+GROUP BY value;

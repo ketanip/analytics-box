@@ -1,6 +1,6 @@
 import React from 'react';
 import { overviewAnalysis } from "../types/analysis"
-import { Box, Text, Flex, Center } from '@chakra-ui/react';
+import { Box, Text, Flex, Center, StatGroup, Stat, StatLabel, StatNumber } from '@chakra-ui/react';
 
 type props = {
     overview: overviewAnalysis,
@@ -27,23 +27,20 @@ const Overview: React.FC<props> = ({ overview }) => {
 
     return (
         <>
-            <>
-                <Flex gridGap="20" ml={10}>
+            <StatGroup pl={10} mt={2}>
 
-                    {
-                        data.map(item => (
+                {
+                    data.map(item => (
 
-                            <Box>
-                                <Text fontSize="3xl" fontWeight="thin">{item.value}</Text>
-                                <Text fontSize="lg" fontWeight="medium">{item.name}</Text>
-                            </Box>
+                        <Stat>
+                            <StatLabel>{item.name}</StatLabel>
+                            <StatNumber>{item.value}</StatNumber>
+                        </Stat>
 
-                        ))
-                    }
+                    ))
+                }
 
-                </Flex>
-            </>
-
+            </StatGroup>
         </>
     )
 

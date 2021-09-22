@@ -56,6 +56,12 @@ func (filter *Filter) GetDataAnalysis(analysisFor string) {
 		filter.Data.Analysis = result
 	case "country":
 		filter.Data.Countries = result
+	case "utm-source":
+		filter.Data.UTMSources = result
+	case "utm-medium":
+		filter.Data.UTMMedium = result
+	case "utm-campaign":
+		filter.Data.UTMCampaigns = result
 	}
 }
 

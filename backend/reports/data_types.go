@@ -28,6 +28,9 @@ type Report struct {
 	Browsers         []BaseAnalysis   `json:"browsers"`
 	PageViews        []BaseAnalysis   `json:"page_views"`
 	Countries        []BaseAnalysis   `json:"countries"`
+	UTMMedium        []BaseAnalysis   `json:"utm_medium"`
+	UTMSources       []BaseAnalysis   `json:"utm_sources"`
+	UTMCampaigns     []BaseAnalysis   `json:"utm_campaigns"`
 }
 
 // BaseAnalysis struct.
