@@ -1,6 +1,6 @@
 import React from 'react';
 import { baseAnalysis } from '../../types/analysis';
-import { Text, Table, Thead, Tr, Th, Tbody, Td, Tfoot, Box } from '@chakra-ui/react';
+import { Text, Table, Thead, Tr, Th, Tbody, Td, Box } from '@chakra-ui/react';
 import BaseAnalysisComplete from './BaseAnalysisComplete';
 
 type props = {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { baseAnalysis } from '../../types/analysis';
-import { Text, Box, Table, Thead, Tr, Th, Tbody, Td, Button, Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody, ModalFooter, useDisclosure, Center, Divider } from '@chakra-ui/react';
+import { Text, Box, Table, Thead, Tr, Th, Tbody, Td, Button, Modal, ModalOverlay, ModalContent, ModalCloseButton, ModalBody, ModalFooter, useDisclosure, Center, Divider } from '@chakra-ui/react';
 
 type props = {
     data: baseAnalysis[];

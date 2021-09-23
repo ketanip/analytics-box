@@ -42,7 +42,7 @@ const FilterWidget: React.FC<props> = ({ filter_data, response }) => {
                         if (item[1]) {
 
                             return (
-                                <Badge variant="solid" colorScheme="green" p={1.5} rounded="md">{item[0]}: {item[1]}</Badge>
+                                <Badge variant="solid" colorScheme="gray" p={1.5} rounded="md">{item[0]}: {item[1]}</Badge>
                             )
 
                         }

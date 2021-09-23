@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Grid, Text, Flex, Spacer } from '@chakra-ui/react';
+import { Box, Grid, Text } from '@chakra-ui/react';
 import MainChart from '../components/MainChart';
 import BaseAnalysisSmall from '../components/analysis/BaseAnalysisSmall';
 import DashboardWorldMap from '../components/WorldMap';
