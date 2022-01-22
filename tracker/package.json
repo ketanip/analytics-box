@@ -6,7 +6,7 @@
   "dependencies": {
     "browser-interaction-time": "^2.2.1",
     "js-cookie": "^3.0.1",
-    "nanoid": "^3.1.25"
+    "nanoid": "^3.1.31"
   },
   "devDependencies": {
     "@types/js-cookie": "^2.2.7",
