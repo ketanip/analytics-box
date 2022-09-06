@@ -25,8 +25,3 @@ Analytics box is analytics tool like google analytics but instead of ripping use
 5. Super simple to setup. ( 1 go binary + 1 super small script on frontend ).
 6. Super low resource consumption.
 7. Uses Postgres so it can scale a lot without using a lot of resources.
-
-# Todo
-- [X] Added Docs.
-- [ ] Add auth.
-
