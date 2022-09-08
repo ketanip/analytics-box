@@ -1,5 +1,7 @@
 # Analytics Box
 
+**NOTE**: New version of Analytics box is being developed with Node.JS, please check it out here as https://github.com/ketanip/analytics-box-backend
+
 ![](./assets/c/1.jpg)
 ![](./assets/c/2.jpg)
 
