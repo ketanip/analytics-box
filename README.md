@@ -1,21 +1,34 @@
-# Analytics Box
+# 📊 Analytics Box
 
-![](./assets/c/1.jpg)
-![](./assets/c/2.jpg)
+![Analytics Box](./assets/c/1.jpg)
+![Analytics Box](./assets/c/2.jpg)
 
-Hello guys, this is privacy friendly analytics tool, Analytics Box for web written in go. It ensures user privacy but at the same time also provides key metrics that will ensure your business does good while keeping user privacy in mind.
+Hello everyone, welcome to **Analytics Box**, your privacy-friendly analytics tool for web applications, written in Go. Our tool is designed to prioritize user privacy while delivering essential metrics to help your business thrive.
 
-You can use tracking script from CDN with `src="https://cdn.jsdelivr.net/gh/ketanip/analytics-box/tracker/dist/index.js"`.
+You can easily integrate our tracking script via CDN by adding the following to your HTML:
 
-### What is Analytics Box ?
+```html
+<script src="https://cdn.jsdelivr.net/gh/ketanip/analytics-box/tracker/dist/index.js"></script>
+```
 
-Analytics box is analytics tool like google analytics but instead of ripping user's privacy off them like google it respects their privacy and doesn't collect any unnecessary information.
+### What is Analytics Box?
 
-### Features
-1. Works with and without cookies.
-2. No fingerprinting of user on server.
-3. Can track unique page views effectively without hurting user's privacy, no fingerprinting user.
-4. Custom events are supported.
-5. Super simple to setup. ( 1 go binary + 1 super small script on frontend ).
-6. Super low resource consumption.
-7. Uses Postgres so it can scale a lot without using a lot of resources.
+Analytics Box is an analytics solution similar to Google Analytics. However, unlike Google, we respect user privacy and refrain from collecting unnecessary personal information.
+
+### Key Features 🌟
+
+1. **Cookie Flexibility**: Analytics Box works seamlessly with and without cookies, ensuring users have choices when it comes to data tracking.
+
+2. **No Fingerprinting**: We do not perform any server-side fingerprinting of users, safeguarding their anonymity.
+
+3. **Effective Page Views Tracking**: We track unique page views without compromising user privacy, without employing fingerprinting techniques.
+
+4. **Custom Event Tracking**: You can easily set up custom events to track specific user interactions on your website.
+
+5. **Easy Setup**: Setting up Analytics Box is a breeze – just one Go binary and a small frontend script, and you're good to go!
+
+6. **Minimal Resource Consumption**: We are designed to be resource-efficient, ensuring your server's performance remains top-notch.
+
+7. **Scalable with Postgres**: Analytics Box utilizes Postgres, allowing for significant scalability without excessive resource consumption.
+
+Give Analytics Box a try, and elevate your analytics game while respecting user privacy! 🚀🔒
