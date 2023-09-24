@@ -1,7 +1,9 @@
 # 📊 Analytics Box
 
-![Analytics Box](./assets/c/1.jpg)
-![Analytics Box](./assets/c/2.jpg)
+![Analytics Box](./assets/c/1.png)
+![Analytics Box](./assets/c/2.png)
+![Analytics Box](./assets/c/3.png)
+![Analytics Box](./assets/c/4.jpg)
 
 Hello everyone, welcome to **Analytics Box**, your privacy-friendly analytics tool for web applications, written in Go. Our tool is designed to prioritize user privacy while delivering essential metrics to help your business thrive.
 
