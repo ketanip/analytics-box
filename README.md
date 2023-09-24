@@ -1,10 +1,17 @@
 # 📊 Analytics Box
 
 ![Analytics Box](./assets/c/1.png)
-![Analytics Box](./assets/c/2.png)
-![Analytics Box](./assets/c/3.png)
-![Analytics Box](./assets/c/4.jpg)
 
+<details>
+<summary>View more screenshots.</summary>
+  
+![Analytics Box](./assets/c/2.png)
+  
+![Analytics Box](./assets/c/3.png)
+
+![Analytics Box](./assets/c/4.jpg)
+</details>
+  
 Hello everyone, welcome to **Analytics Box**, your privacy-friendly analytics tool for web applications, written in Go. Our tool is designed to prioritize user privacy while delivering essential metrics to help your business thrive.
 
 You can easily integrate our tracking script via CDN by adding the following to your HTML:
